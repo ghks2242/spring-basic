@@ -54,3 +54,22 @@ ApplicationContext
         -- BeanFactory 를 직접사용할일은 거의없다 부가기능이 포함된 ApplicationContext 을 사용한다.
         -- BeanFactory 나 ApplicationContext 를 스프링 컨테이너라고 한다.
 
+스프링 빈 설정 메타정보 - BeanDefinition
+    - 스프링은 어떻게 이렇게 다양한 설정 형식을 지원하는 것일까? 그 중심에는 BeanDefinition 이라는 추상화가 있다.
+    - 쉽게 이야기해서 역할과 구현을 개념적으로 나눈것 이다.
+        - XML 을 읽어서 BeanDefinition 을 만들면 된다.
+        - 자바 코드를 읽어서 BeanDefinition 을 만들면 된다.
+        - 스프링 컨테이너는 자바 코드인지 XML 인지 몰라도 오직 BeanDefinition 만알면된다.
+    - BeanDefinition 을 빈 설정 메타정보라고한다.
+        - @Bean , <bean> 당 각각 하나씩 메타정보가 생선된다.
+    - 스프링 컨테이너는 메타정보를 기반으로 스프링 빈을 설정한다.
+
+    - AnnotationConfigApplicationContext 는 AnnotatedBeanDefinitionReader 를 사용해서
+      AppConfig.class 를 읽고 BeanDefinition 을 생성한다.
+
+    - GenericXmlApplicationContext 는 XmlBeanDefinitionReader 를 사용해서
+      appConfig.xml 설정정보를 읽고 BeanDefinition 을 생성한다.
+
+    - 새로운 형식의 설정정보가 추가되면 XxxBeanDefinitionReader 를 만들어서 BeanDefinition 을 생성하면된다.
+
+ /**    BeanDefinitionTest << 에 정리또해놈   */
