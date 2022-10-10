@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration // || spring 으로 전환하기
+    // @Configuration 주석처리하면 실행은되지만 싱글톤이 꺠지게된다.
+    // @Bean 만 사용해도 스프링빈으로 등록되지만 싱글톤은 보장하지않는다
 public class AppConfig {
 
     /**

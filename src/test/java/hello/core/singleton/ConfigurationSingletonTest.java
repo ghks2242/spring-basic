@@ -48,5 +48,8 @@ public class ConfigurationSingletonTest {
         그 임의의 다른 클래스가 바로 싱글톤이 보장되도록 해준다. 아마도 다음과 같이 바이트 코드를 조작해서 작성되어 있을것이다.
         (실제로는 CGLIB 내부 기술을 사용하는데 매우복잡하다.)
         */
+
+        // 자식타입이 빈으로 올라갔는데 ac.getBean(AppConfig.class) 부모타입으로 조회되는 이유는
+//        ApplicationContextExtendsFindTest 클래스에서 공부한대로 부모타입으로 조회해도 자식까지 다 조회할수있기떄문에
     }
 }
