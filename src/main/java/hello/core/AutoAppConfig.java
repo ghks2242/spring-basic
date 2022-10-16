@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -41,5 +44,14 @@ import org.springframework.stereotype.Service;
 // 컴포넌트스캔은 @Component 붙은 클래스를 스캔해서 스프링빈으로 등록한다.
 // Configuration 이 컴포너틑 스캔이 대상이 된이유도 소스코드를 열어보면 @Component 어노테이션이 붙어있기떄문이다.
 public class AutoAppConfig {
+
+//    수동빈 등록과 자동빈 등록에서 빈이름이 충돌되면 어떻게될까?
+//    이경우 수동빈등록이 우선권을 가지게된다 ( 수동빈이 자동빈을 오버라이딩 해준다)
+//    이러한경우들을 의도하면좋은대 개발자들의 설정오류나 수백개의 빈들이 올라가면서 꼬여서 나오는 오류들이 대부분이라 ** 스프링부트는 기본적으로 이러한 설정을 막아놓앗다 ** ( 스프링은 기본적으로가능)
+//    스프링부트에서 해당기능을 설정하려면 application.properties 에서 spring.main.allow-bean-definition-overriding=true 적어주면된다
+    @Bean(name = "memoryMemberRepository")
+    MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
 
 }
