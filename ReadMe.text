@@ -128,6 +128,19 @@ ApplicationContext
     - 일반 메서드 주입
 
 
+## 조회대상 빈이 2개 이상일경우 해결방법
+    - @Autowired 필드명 매칭
+        -- @Autowired 는 타입매칭을 시도하고 이떄 여러빈이 있으면 필드 이름, 파라미터 이름으로 빈 이름을 추가 매칭한다.
+        -- (ex)
+            (기존코드)                                  (필드명을 빈이름으로 지정)
+            private DiscountPolicy discountPolicy -> private DiscountPolicy rateDiscountPolicy
+    - @Qualifier -> @Qualifier 끼리 매칭 -> 빈이름 매칭
+        -- @Qualifier 는 추가 구분자를 붙여주는 방법이다. 주입시 추가적인 방법을 제공하는 것이지 빈이름을 변경하는것은 아니다.
+    - @Primary 사용
+        -- 우선순위를 가지고 동작한다
+
+    # @Primary 는 기본값처럼동작 하는거고 @Qualifier 는 매우 상세하게 동작한다
+      스프링은 자동보다는 수동이 넓은범위보다는 좁은범위 선택권이 우선순위가 높다 따라서 @Qualifier 가 우선권이 높다.
 
 
 
