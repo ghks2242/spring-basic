@@ -49,9 +49,12 @@ public class AutoAppConfig {
 //    이경우 수동빈등록이 우선권을 가지게된다 ( 수동빈이 자동빈을 오버라이딩 해준다)
 //    이러한경우들을 의도하면좋은대 개발자들의 설정오류나 수백개의 빈들이 올라가면서 꼬여서 나오는 오류들이 대부분이라 ** 스프링부트는 기본적으로 이러한 설정을 막아놓앗다 ** ( 스프링은 기본적으로가능)
 //    스프링부트에서 해당기능을 설정하려면 application.properties 에서 spring.main.allow-bean-definition-overriding=true 적어주면된다
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
+
+
+
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 
 }
